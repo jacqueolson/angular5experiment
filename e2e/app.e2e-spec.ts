@@ -1,14 +1,14 @@
-import { Angular5experimentPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('angular5experiment App', () => {
-  let page: Angular5experimentPage;
+describe('ng5 App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new Angular5experimentPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
