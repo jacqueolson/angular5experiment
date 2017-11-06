@@ -8,12 +8,14 @@ import { AppService } from '../../services/app.service';
 })
 
 export class AppRootComponent {
-
-  public title = 'Warrendale Mobile Pharmacy';
   public appUser = 'Jacque Olson';
 
   public constructor(private appService: AppService) {
     appService.serviceUser = this.appUser;
     console.log(appService.showServiceUserName());
+  }
+
+  public onDeleteUser(value: any) {
+    this.appUser = value;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +7,23 @@ import { Component, OnChanges, Input } from '@angular/core';
 })
 export class AppHeaderComponent implements OnChanges {
   @Input() headerUser;
-  isAuthenticated;
+  @Output() deleteUser: EventEmitter<any> = new EventEmitter();
+
+  isAuthenticated: boolean;
 
   constructor() {
-    this.isAuthenticated = this.headerUser ? true : false;
    }
 
   ngOnChanges() {
     this.isAuthenticated = this.headerUser ? true : false;
     console.log(this.headerUser + ' ' + this.isAuthenticated + ' Header changes');
+  }
+
+  onDeleteUser() {
+    this.headerUser = null;
+    this.deleteUser.emit(null);
+  }
+
+  onLogin(): void {
   }
 }

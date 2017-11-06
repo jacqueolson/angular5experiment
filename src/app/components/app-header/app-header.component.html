@@ -1,24 +1,25 @@
 <mat-toolbar layout="row" color="primary">
-  <span>ESI</span>
+  <h2>ESI</h2>
   <span class="fill-space"></span>
-  <p>We now know</p>
+
+  <h2>Safire Mobile</h2>
+
   <span class="fill-space"></span>
-  <div [hidden]="isAuthenticated == true">
+
+  <div [hidden]="isAuthenticated">
     <button mat-button [matMenuTriggerFor]="loggedInMenu">
-      <mat-icon>more_vert</mat-icon>
+        <h2>{{headerUser}} <mat-icon>keyboard_arrow_down</mat-icon></h2>
     </button>
     <mat-menu y-position="below" #loggedInMenu="matMenu">
-        <button mat-menu-item>Logged In!</button>
-        <button mat-menu-item>nice</button>
+        <button mat-menu-item (click)="onDeleteUser()">Logout</button>
     </mat-menu>
   </div>
-  <div [hidden]="isAuthenticated == false">
+  <div [hidden]="!isAuthenticated">
     <button mat-button [matMenuTriggerFor]="loginMenu">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu y-position="below" #loginMenu="matMenu">
-        <button mat-menu-item>Need to Login!</button>
-        <button mat-menu-item>pls</button>
+        <button mat-menu-item (click)="login()">Login</button>
     </mat-menu>
   </div>
 </mat-toolbar>

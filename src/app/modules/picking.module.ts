@@ -15,6 +15,9 @@ import { ListComponent } from '../components/list/list.component';
   imports: [
     SharedModule
   ],
+  exports: [
+    ScaninputComponent,
+    ListComponent],
   providers: [],
 })
 export class PickingModule { }
